@@ -1,0 +1,64 @@
+/* CSS Document */
+body {
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	
+	
+}
+header {
+	margin-top: 10px;
+}
+
+#home {
+	
+	
+	
+	
+	
+	
+	
+}
+
+#fundo_formulario {
+	
+	width: 400px;
+	height: 400px;
+	background-color: rgba(255,255,255,0.5);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;/*background: url(../img/Fundo_email.svg) no-repeat left top;*/
+	
+}
+
+
+
+.caixa-promo {
+	
+	margin: 10px;
+}
+
+/*media queries*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width : 695px ){
+	
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /php/arquivos/
+
+
+Sitemap: http://ericssongomes.com

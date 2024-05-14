@@ -1,0 +1,664 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+:root {
+	--font-protestRevolution: "Protest Revolution", sans-serif;
+	--font-holtwoodOne:"Holtwood One SC", serif;
+	--font-ptSansNarrow: "PT Sans Narrow", sans-serif;
+	--text-shadow: rgba(255,255,255,1);
+	--text-colorRed: #7A1315;
+	--text-colorBlue: #225EB0;
+	--text-colorWhite: #d4d4d4;
+	--text-colorbrown: #3d1f1f;
+	--nav-BackgroundColor: rgba(36,36,36,1);
+	--nav-button-BackgroundColor: #D4D4D4;
+	--nav-button-corBorda: aqua;
+	--nav-button-linkColor: #242424;
+	--nav-button-linkColorHover: #942626;
+	--scrollBarColor-Thumb: #2B1919;
+	--scrollBarColor-pol: #A9A9A9;
+	--cardPersonagem-BoxShadow: #D4D4D4;
+	--cardPersonagem-BackgroundColor: rgba(255,255,255,0.3);
+	--cardPersonagem-Color: #242424;
+	--modalPersonagem-inputColor: #019b2f;
+	--modalPersonagem-DescriptionColor: #242424;
+	--btnModalPersonagem-BackgroundColor: #3f2525;
+	--btnModalPersonagem-Color: #d4d4d4;
+	--btnModalPersonagem-backHover: #7e3232;
+	
+
+}
+html {
+	
+	background-image: url("../img/Prancheta 1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-color: #242424;
+	position: relative;
+	height: 100%;
+	
+	
+	
+}
+html::after {
+	content: "";
+	background-image: inherit;
+	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+    left: 0;
+	filter: blur(5px);
+	z-index: -1;
+	opacity: 0.8;
+	height: 100%;
+	
+
+}
+body {
+	
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;	
+	background-color: transparent;	
+	color: var(--text-colorWhite);
+	
+}
+button:focus {
+	outline: none;
+}
+
+/*config dos textos*/
+h2 {
+	font-family: var(--font-protestRevolution);
+	font-weight: 400;
+	font-style: normal;
+	font-size: 3.5em;
+}
+h3{
+	font-family: var(--font-holtwoodOne);
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2em;
+	padding: 10px 0;
+}
+h5 {
+	font-weight: 900;
+	font-size: 1.8em;
+}
+p {
+	line-height: 1.5;
+	font-size: 1.5em;	
+}
+img {
+	border-radius: 15px;
+}
+section {	
+	padding-top: 25px;
+	
+}
+nav {
+	background-color: var(--nav-BackgroundColor);
+	
+}
+nav img {
+	width: 50px;
+}
+.nav-item button {
+	font-weight: 700;	
+	background-color: var(--nav-button-BackgroundColor);
+	margin: 0 10px;
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid var(--nav-button-corBorda);
+	color: #242424;
+	
+}
+.nav-item button:hover {
+	border: 2px solid var(--nav-button-corBorda);
+	cursor: pointer;
+}
+.nav-link a {
+	color: var(--nav-button-linkColor);
+	transition: color 0.5s ease;
+}
+.nav-link a:hover {
+	text-decoration: none;
+	color: var(--nav-button-linkColorHover);
+	
+	
+}
+
+.usuario {
+	font-family: var(--font-protestRevolution);
+}
+main {
+	
+	font-family: var(--font-ptSansNarrow);
+  	font-weight: 700;
+  	font-style: normal;
+	
+}
+.ficha-personagem {
+	background-image: url("../img/Fundo-novo.png");
+	background-repeat: repeat-y;
+	background-size: contain;
+	background-position: center;
+	color: var(--text-colorbrown);	
+	position: relative;
+	
+}
+
+.dadosPersonagem {
+	padding-right: 100px;
+	
+}
+
+
+#jogador {
+	padding-top: 25px;
+}
+#imagemPersonagem {
+	box-shadow: 0 0 10px 5px rgba(255,255,255,0.5);
+	margin-left: 25px;
+}
+#equip {
+	margin: 50px 0;
+}
+#atributos {
+	margin: 10px 10px;
+}
+
+#status {
+	margin: 10px 0;
+}
+.barra-vida {
+	width: 100%; 
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+	box-shadow: 0 0 10px 5px rgba(255, 255, 255, 1);
+}
+.vida-atual {
+	width: 50%;
+    height: 100%;
+    background-color: rgba(118,33,25,1.00);
+    border-radius: 5px;
+	line-height: 0.9;
+	font-size: 1.5em;
+	padding: 3px 0;
+	box-shadow: 0 0 10px 2px rgba(118,33,25,0.8);
+	color: var(--text-colorWhite);
+}
+.atrib {
+	padding: 2px;
+}
+.glass {
+	display: flex;
+	justify-content: center;
+	align-items: start;	
+		
+}
+#historiaPerson {
+	height: 100px;
+	overflow: hidden;
+	transition: height 0.5s ease;
+}
+#historiaPerson.clicked {
+	height: auto;
+}
+#lerMais {
+	display: none;
+	color: var(--text-colorBlue);
+	cursor: pointer;
+	
+}
+article.disable {
+	display: none;
+}
+.invisivel {
+	display: none;
+}
+article.ativo {
+	display: block;
+	animation: fade 0.5s ease backwards;
+}
+.nav-link.ativo {
+	color: var(--text-colorRed) !important;
+	box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);	
+}
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.carousel-item {
+	height: 220px;	
+}
+/*Barra de rolagem*/
+/*Firefox*/
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--scrollBarColor-Thumb) var(--scrollBarColor-pol);
+
+	
+	
+  }
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+    width: 12px;	
+	border-radius: 50px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scrollBarColor-Thumb);
+    border-radius: 50px;
+	width: 10px;
+	
+}
+*::-webkit-scrollbar-track {
+    background: var(--scrollBarColor-pol);
+	
+}
+
+/*Estilo para aba dos personagens*/
+.card-personagem {
+	position: relative;
+	margin: 100px 10px 0 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;	
+	height: 550px;
+	min-width: 100px;
+	border-radius: 15px;
+	color: var(--text-colorWhite);	
+	background-repeat: no-repeat;
+	background-color: var(--cardPersonagem-BackgroundColor);	
+	box-shadow: 0 0 10px var(--cardPersonagem-BoxShadow);
+	background-position-x: center;
+	background-size: cover;	
+	transition: transform 0.5s ease;
+	
+}
+.card-personagem:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+.card-personagem button {	
+	color: var(--text-colorBlue);		
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: transparent;
+	border: transparent;
+}
+.nome-person {	
+	font-size: 1.5em;
+	font-weight: 500;
+	position: absolute;
+	top: 1%;
+	left: 3%;
+	color: var(--cardPersonagem-Color);
+	text-shadow: 0 0 10px var(--text-shadow);
+}
+.titulo-person {
+	font-size: 1.5em;
+	font-weight: 500;
+	position: absolute;
+	top: 7%;
+	left: 3%;
+	color: var(--cardPersonagem-Color);
+	text-shadow: 0 0 10px var(--text-shadow);
+}
+.classe-person {
+	font-size: 1.8em;
+	font-weight: 700;
+	position: absolute;
+	bottom: 13%;
+	left: 3%;
+	color: var(--cardPersonagem-Color);
+	text-shadow: 0 0 10px var(--text-shadow);
+	
+}
+.raca-person {
+	font-size: 1.8em;
+	font-weight: 700;
+	position: absolute;
+	bottom: 8%;
+	left: 3%;
+	color: var(--cardPersonagem-Color);
+	text-shadow: 0 0 10px var(--text-shadow);
+}
+.nivel-person {
+	font-size: 2em;
+	font-weight: 700;
+	position: absolute;
+	bottom: 2%;
+	left: 3%;
+	color: var(--cardPersonagem-Color);
+	text-shadow: 0 0 10px var(--text-shadow);
+}
+.exclui-person {
+	position: absolute;	
+	top: 92%;
+	left: 80%;	
+	width: 2%;
+	height: 2%;
+		
+}
+.exclui-person i {
+	font-size: 2.5em;
+	color: var(--text-colorRed);
+	text-shadow: 0 0 10px var(--text-shadow);
+}
+.exclui-person:hover {
+	cursor: pointer;
+}
+/*.add i {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+.add i:hover {
+	box-shadow: 0 0 75px 25px rgba(255,255,255, 1.0);
+	transform: scale(1.5);
+}*/
+.btnAdd {
+	stroke: #60A5FA; 
+  	fill: none; 
+  	transition-duration: 300ms;
+}
+.btnAdd:hover {
+	fill: #1E3A8A;
+}
+.btnAdd:active {
+	stroke: #BFDBFE;
+	fill: #2563EB; 
+	transition-duration: 0ms;
+}
+/*Estilo do modal de criação de personagem*/
+.modal {
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+	max-height: 100vh;
+    overflow-y: auto;	
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 100vh;
+	opacity: 0.5;
+	transition: opacity 1s ease;
+}
+.modal.active .modal-content {	
+	opacity: 1;
+}
+.openModalBtn {
+	cursor: pointer;
+  	outline: none;
+  	transition-duration: 300ms;
+	text-align: center;
+}
+.openModalBtn:hover {
+	transform: rotate(90deg);
+}
+.close-btn {
+    color: var(--text-colorWhite);
+    float: right;
+    font-size: 3em;
+    font-weight: bold;
+	width: 2%;
+    cursor: pointer;
+	transition: color 0.5s ease;			
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--text-colorRed);
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal label {
+	color: black;
+	font-size: 1.5em;
+}
+.modal input {
+	color: var(--modalPersonagem-inputColor);
+	font-weight: 700;
+	font-size: 1em;
+}
+.uploadFile {
+	height: 200px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	gap: 20px;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	border: 2px dashed #cacaca;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+}
+.uploadFile .icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.uploadFile .icon svg {
+	height: 80px;
+	fill: rgba(75, 85, 99, 1);
+}
+.uploadFile .text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.uploadFile .text span {
+	font-weight: 400;
+  	color: rgba(75, 85, 99, 1);
+}
+.uploadFile input {
+	display: none;
+}
+.btn {
+	background-color: var(--btnModalPersonagem-BackgroundColor);	
+	color: var(--btnModalPersonagem-Color);
+}
+.btn:hover {
+	transition: color 0.5s ease, background 0.5s ease;
+	background-color: var(--btnModalPersonagem-backHover);
+	color: var(--btnModalPersonagem-Color);
+}
+.modal p {	
+	color: var(--modalPersonagem-DescriptionColor);
+}
+/*estilo para a inventário de magia*/
+
+
+
+
+
+/* Estilo para a div do inventário*/
+.inventory {
+    display: flex;
+    flex-wrap: wrap;	
+}
+/* Estilo para as divs .item do inventário */
+.item {
+    width: 100px;
+    height: 100px;
+    margin: 5px; 
+    position: relative; 
+}
+/* Estilo para os modais do inventário */
+.modal-body {
+    text-align: justify;
+	color: #242424 !important;
+}
+.modal-title {
+	color: #242424 !important;
+}
+#teste {
+	border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	max-height: 200px;
+}
+.inventarioMagia {
+	max-height: 100px;	
+}
+
+
+
+
+
+@media (max-width: 410px){
+	.carousel-item {
+		height: 270px;		
+	}
+	.dadosPersonagem {
+		padding: 25px 0 0 0;
+		
+	}
+	.ul-custom {
+		display: flex;
+		justify-content: center;
+		align-items: center;	
+	}
+	#nav-principal {
+		width: 100%;
+		background-color: var(--nav-button-BackgroundColor);
+	}
+	.ul-custom .nav-item button {		
+		border: none;
+		color: inherit;		
+		padding: 5px 100px;
+		margin: 5px 0;
+	}
+	#slotsMagia {
+	width: 150px;
+	height: 150px;
+	}
+	#atributos {
+		margin: 10px 20px;
+	}
+	#imagemPersonagem {		
+		margin: 0 10px 0 0;
+	}
+	
+}
+@media (min-width: 411px) and (max-width: 446px) {
+	.carousel-item {
+		height: 250px;		
+	}
+	.dadosPersonagem {
+		padding: 25px 0 0 0;
+		
+	}
+	.ul-custom {
+		display: flex;
+		justify-content: center;
+		align-items: center;	
+	}
+	#nav-principal {
+		width: 100%;
+		background-color: var(--nav-button-BackgroundColor);
+	}
+	.ul-custom .nav-item button {		
+		border: none;
+		color: inherit;		
+		padding: 5px 100px;
+		margin: 5px 0;
+	}
+	#slotsMagia {
+	width: 150px;
+	height: 150px;
+	}
+	#atributos {
+		margin: 10px 20px;
+	}
+	#imagemPersonagem {		
+		margin: 0 10px 0 0;
+	}
+	
+	
+}
+@media (min-width: 447px) and (max-width: 767.99px) { 
+	.carousel-item {
+		height: 230px;		
+	}
+	.dadosPersonagem {
+		padding: 25px 0 0 0;
+		
+	}
+	.ul-custom {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		
+	}
+	#nav-principal {
+		width: 100%;
+		background-color: var(--nav-button-BackgroundColor);
+	}
+	.ul-custom .nav-item button {		
+		border: none;
+		color: inherit;		
+		padding: 5px 100px;
+		margin: 5px 0;
+	}
+	#slotsMagia {
+	width: 150px;
+	height: 150px;
+	}
+	#atributos {
+		margin: 10px 20px;
+	}
+	#imagemPersonagem {		
+		margin: 0 10px 0 0;
+	}
+	
+}
+@media (min-width: 768px) and (max-width: 990.99px) {
+	#atributos {
+		margin: 10px 20px;
+	}
+}
+@media (max-width: 991px) {
+	.card-personagem {
+		margin: 40px 50px;
+	}
+}
+
+@media (min-width: 991px) and (max-width: 1079.99px) {
+	.nome-person {
+		font-size: 1em;
+
+	}
+	#atributos {
+		margin: 10px 20px;
+	}
+}
+@media (min-width: 1080px) and (max-width: 1294.99px) {
+	.nome-person {
+		font-size: 1em;
+	}
+}
+@media (min-width: 1295px) and (max-width: 1560px) {
+	.nome-person {
+		font-size: 1.3em;
+	}
+}

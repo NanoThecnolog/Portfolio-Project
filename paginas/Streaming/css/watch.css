@@ -1,0 +1,23 @@
+/* CSS Document */
+
+
+body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	
+}
+
+.movie {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;	
+}
+#titulo {	
+	z-index: 99;
+	position: absolute;
+	top: 3%;
+	left: 2%;
+	color: #E0E0E0;
+}

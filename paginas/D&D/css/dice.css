@@ -1,0 +1,189 @@
+/* CSS Document */
+body {
+  font-family: helvetica, arial;
+  font-size: 12px;
+}
+
+.die-button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 0 5px;
+  background: #eee;
+  border: 2px solid #2ca8d8;
+  border-radius: 50px;
+  padding: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+  height: 55px;
+  width: 55px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  outline: none;
+}
+.die-button:hover {
+  background: #e5e5e5;
+}
+
+.die-button:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.8);
+  z-index: 1;
+}
+
+
+.die-button:hover:after {
+  content: attr(type);
+  position: absolute;
+  top: 50%;
+  font-size: 2.5em;
+  text-align: center;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.die-button img {
+  width: 100%;
+  padding: 0;
+  display: inline-block;
+}
+
+.die-buttons {
+	
+}
+
+.results {
+  min-height: 10em;
+  display: flex;
+  align-items: center;
+  flex-spacing: 10px;	
+	margin: 0 0 15px 0;
+}
+
+.results .modifier {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;  
+  border: 1px solid #aaa;
+  padding: 5px;
+  width: 30px;
+  text-align: center;
+  border-radius: 4px;
+  background: #eee;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.modifier:before {
+  content: '+';
+}
+
+.rolls {
+  min-height: 4em;
+  margin: 20px 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.rolls .die {
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  margin: 0 5px 10px;
+  line-height: 1em;
+  vertical-align: middle;
+}
+
+.rolls .die:not(:last-child) {
+  margin-right: 2em;
+  position: relative;
+}
+
+.rolls .die:not(:last-child):after {
+  content: '+';
+  display: inline-block;
+  position: absolute;
+  right: -1.5em;
+  top: 1em;
+}
+
+.rolls .die img {
+  display: block;
+  height: 50px;
+  width: 50px;
+	background-color: #eee;
+	border-radius: 50px;
+	padding: 7px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
+.modifiers {
+  margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .modifiers {
+    white-space: nowrap;
+    overflow: auto;
+    padding-bottom: 20px;
+  }
+}
+
+.modifiers label:not(.none) {
+  display: inline-block;
+  width: 50px;
+}
+
+.modifiers label input {
+  margin-right: 5px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + span {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 3px;
+  width: 30px;
+  text-align: center;
+  border-radius: 4px;
+  background: #eee;
+  margin: 5px 5px;
+  cursor: pointer;
+	color: #242424;
+}
+
+.results .modifier:hover,
+input[type="radio"] + span:hover {
+  background: #e5e5e5;
+}
+
+input[type="radio"]:checked + span {
+  color: #2ca8d8;
+  border-color: #2ca8d8;
+}
+
+.results .sum,
+.results .with-modifier {
+  display: inline-block;
+  margin-left: 1.5em;
+  font-size: 2em;
+  line-height: 3em;
+  color: #2ca8d8;
+}
+
+.results.no-modifier .modifier,
+.results:not(.no-modifier) .sum,
+.results.no-modifier .with-modifier {
+  display: none;
+}
